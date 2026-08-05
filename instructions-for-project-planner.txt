@@ -1,0 +1,1138 @@
+
+General
+Cursor AI
+Cursor AI 
+Project Product Management Gantt Master Guide
+Cursor AI Master Build Guide
+AI Project Management and AI Product Management Planner with Microsoft Project–Style Gantt Scheduling
+Use case: Build a production-grade, offline-capable planning application in Cursor AI for managing AI projects and AI products.
+Recommended workflow: Use Cursor Plan Mode first. Approve the architecture and data model before allowing Agent to implement.
+Target result: A professional project scheduler with WBS, Gantt, dependencies, milestones, resources, baselines, critical path, AI product roadmaps, AI lifecycle gates, evaluation tracking, AI FinOps, governance and executive reporting.
+﻿
+1. What You Are Building
+Create a local-first web application called:
+AI Project and Product Management Planner
+The application must combine:
+Traditional project-management scheduling.
+AI product-management planning.
+AI/ML/LLM engineering lifecycle management.
+Responsible-AI, security and governance controls.
+AI FinOps, token economics and operational-readiness tracking.
+The application must behave like a professional desktop project-planning tool, with a task grid on the left and a synchronized interactive Gantt chart on the right.
+It must run locally on Windows without requiring a cloud account, external API key or backend server after installation/build.
+﻿
+2. Recommended Technical Architecture
+Use:
+React
+TypeScript
+Vite
+Local-first persistence using IndexedDB
+JSON as the canonical interchange format
+CSV import/export
+XLSX export through a locally bundled library
+SVG or Canvas for the Gantt timeline
+A deterministic scheduling engine implemented in TypeScript
+Vitest for unit tests
+Playwright for end-to-end tests
+ESLint and strict TypeScript checks
+Do not depend on a hosted API, SaaS service or runtime CDN.
+Bundle all runtime assets locally.
+Prefer an internal Gantt implementation if third-party licensing, offline use or missing scheduling features create risk. A third-party library may be used only after checking its license, offline compatibility, accessibility, maintenance status and ability to support dependency arrows, baselines, critical path and editable task bars.
+﻿
+3. Cursor Repository Setup
+Create this initial structure:
+
+ai-project-product-planner/
+├── AGENTS.md
+├── README.md
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+├── index.html
+├── public/
+├── docs/
+│   ├── PRD.md
+│   ├── SCHEDULING_ENGINE_SPEC.md
+│   ├── DATA_MODEL.md
+│   ├── UX_SPEC.md
+│   ├── TEST_STRATEGY.md
+│   ├── SECURITY_AND_PRIVACY.md
+│   └── ADR/
+├── sample-data/
+│   ├── enterprise-rag-program.json
+│   ├── ai-product-roadmap.json
+│   └── resource-calendar.json
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── features/
+│   │   ├── portfolio/
+│   │   ├── projects/
+│   │   ├── product-roadmap/
+│   │   ├── wbs/
+│   │   ├── gantt/
+│   │   ├── scheduling/
+│   │   ├── resources/
+│   │   ├── budgets/
+│   │   ├── risks/
+│   │   ├── evaluations/
+│   │   ├── governance/
+│   │   └── reporting/
+│   ├── domain/
+│   ├── services/
+│   ├── persistence/
+│   ├── import-export/
+│   ├── calculations/
+│   ├── validation/
+│   ├── styles/
+│   └── tests/
+└── e2e/
+
+Use the previously prepared Cursor engineering principles as the root AGENTS.md.
+﻿
+4. Cursor Plan Mode Prompt
+Paste the following into Cursor Plan Mode before implementation.
+
+You are acting as a principal product architect, AI product manager, program manager, scheduling-engine engineer, UX architect and test lead.
+
+Create a detailed implementation plan for an offline-capable AI Project and Product Management Planner.
+
+Do not write production code yet.
+
+First inspect the repository, AGENTS.md and any existing files. Then ask only the questions that materially affect architecture, scheduling correctness, security, offline operation or acceptance criteria.
+
+The product must provide a Microsoft Project–style split view with:
+
+- Hierarchical WBS task grid.
+- Interactive Gantt timeline.
+- Summary tasks and milestones.
+- Four dependency types: Finish-to-Start, Start-to-Start, Finish-to-Finish and Start-to-Finish.
+- Positive and negative lag.
+- Working calendars, weekends, holidays and resource calendars.
+- Manual and automatically scheduled tasks.
+- Constraints and deadlines.
+- Forward and backward scheduling.
+- Critical path and total/free float.
+- Baseline versus current schedule.
+- Planned, actual and remaining work.
+- Percentage complete and physical percentage complete.
+- Resource assignments, capacity, utilization and over-allocation.
+- Fixed cost, resource cost, AI inference cost and contingency.
+- Status date and progress line.
+- Portfolio, program, project, release and sprint levels.
+- Import/export using JSON, CSV and XLSX.
+- Print-friendly and executive-report views.
+- Local persistence and sample projects.
+
+The product must also support AI-specific planning:
+
+- AI product vision and strategy.
+- Personas, jobs-to-be-done and problem statements.
+- Outcomes, OKRs, KPIs and benefit hypotheses.
+- Discovery opportunities and assumptions.
+- Epics, features, experiments and releases.
+- Dataset readiness and data-quality gates.
+- Model, prompt, RAG, agent and tool workstreams.
+- Evaluation contracts and scorecards.
+- Accuracy, groundedness, relevance, safety, latency and cost metrics.
+- Responsible-AI and regulatory gates.
+- Threat modelling and red-team activities.
+- Human-in-the-loop controls.
+- Model and prompt versioning.
+- LLMOps/MLOps readiness.
+- AI FinOps and token economics.
+- Pilot, shadow, canary and production rollout.
+- Adoption, change management and operating model.
+- Monitoring, incident response and retirement.
+
+Produce and save:
+
+1. docs/PRD.md
+2. docs/DATA_MODEL.md
+3. docs/SCHEDULING_ENGINE_SPEC.md
+4. docs/UX_SPEC.md
+5. docs/TEST_STRATEGY.md
+6. docs/SECURITY_AND_PRIVACY.md
+7. A phased implementation plan with file paths.
+8. Acceptance criteria for every major feature.
+9. A risk register identifying schedule-calculation, data-loss, performance, security, licensing and usability risks.
+10. ADR proposals for the scheduling engine, local persistence and Gantt rendering approach.
+
+The implementation plan must identify:
+
+- The smallest working vertical slice.
+- Dependencies between implementation phases.
+- Tests to be written before or with each phase.
+- What is deliberately excluded from version 1.
+- Migration and rollback considerations.
+- Performance budgets.
+- Accessibility requirements.
+- Browser support.
+- Offline packaging approach.
+- Definition of done.
+
+Do not claim Microsoft Project file compatibility unless it is explicitly implemented and tested.
+
+Review and edit Cursor's plan before selecting Build.
+﻿
+5. Product Information Architecture
+The application should have these main areas.
+5.1 Portfolio Dashboard
+Show:
+Portfolio health.
+Active programs and products.
+Schedule variance.
+Cost variance.
+AI inference-cost trend.
+Delivery confidence.
+High risks and blocked milestones.
+Resource hot spots.
+Quality and evaluation-gate status.
+Governance-gate status.
+Expected versus realized benefits.
+5.2 Project Workspace
+Provide:
+Project charter.
+Objectives and success criteria.
+Scope and exclusions.
+Stakeholders.
+Workstreams.
+WBS.
+Gantt.
+Milestones.
+Resources.
+Budget.
+RAID log.
+Decisions.
+Changes.
+Reports.
+5.3 Product Workspace
+Provide:
+Product vision.
+North-star metric.
+Personas and user segments.
+Jobs-to-be-done.
+Opportunity solution tree.
+Outcome roadmap.
+Product backlog.
+Experiments.
+Releases.
+Adoption metrics.
+Benefit hypotheses.
+Product risks.
+Lifecycle status.
+5.4 AI Engineering Workspace
+Provide:
+Use-case qualification.
+AI-versus-non-AI decision.
+Data readiness.
+Model strategy.
+Prompt and context strategy.
+RAG architecture.
+Agent and tool design.
+Evaluation contract.
+Safety and responsible-AI controls.
+LLMOps/MLOps.
+Deployment gates.
+Monitoring.
+FinOps.
+5.5 Executive Reporting
+Generate:
+One-page project status.
+Product outcome scorecard.
+Gantt snapshot.
+Milestone trend.
+Critical path.
+Budget and forecast.
+AI quality and cost scorecard.
+Top risks and decisions required.
+Next 30/60/90-day view.
+﻿
+6. Core Domain Model
+Implement typed domain entities.
+6.1 Portfolio and planning entities
+Portfolio
+Program
+Project
+Product
+ProductIncrement
+Release
+Sprint
+Workstream
+WBSNode
+Task
+Milestone
+Dependency
+Calendar
+Resource
+ResourceGroup
+Assignment
+CostRate
+Baseline
+StatusSnapshot
+Deliverable
+6.2 Product-management entities
+ProductVision
+Persona
+JobToBeDone
+ProblemStatement
+Opportunity
+Outcome
+OKR
+KPI
+Hypothesis
+Epic
+Feature
+Story
+Experiment
+AcceptanceCriterion
+Benefit
+AdoptionMetric
+6.3 AI-specific entities
+AIUseCase
+Dataset
+DataQualityGate
+ModelCandidate
+ModelVersion
+PromptVersion
+RetrievalConfiguration
+AgentDefinition
+ToolDefinition
+EvaluationContract
+EvaluationMetric
+EvaluationRun
+SafetyControl
+HumanReviewGate
+DeploymentGate
+InferenceCostProfile
+TokenBudget
+MonitoringMetric
+Incident
+RetirementPlan
+6.4 Governance entities
+Risk
+Issue
+Assumption
+DependencyItem
+Decision
+ChangeRequest
+Control
+Evidence
+Approval
+PolicyMapping
+AuditEvent
+Every entity must have:
+Stable ID.
+Name or title.
+Description where relevant.
+Owner.
+Status.
+Created and updated timestamps.
+Version.
+Tags.
+Audit information.
+Optional external reference.
+﻿
+7. Task and Scheduling Data Model
+Use a task structure comparable to:
+
+type DependencyType = "FS" | "SS" | "FF" | "SF";
+type SchedulingMode = "auto" | "manual";
+type ConstraintType =
+  | "ASAP"
+  | "ALAP"
+  | "SNET"
+  | "SNLT"
+  | "FNET"
+  | "FNLT"
+  | "MSO"
+  | "MFO";
+
+interface Task {
+  id: string;
+  projectId: string;
+  parentId: string | null;
+  wbsCode: string;
+  sequence: number;
+
+  name: string;
+  description?: string;
+  workstreamId?: string;
+  ownerId?: string;
+
+  schedulingMode: SchedulingMode;
+  isSummary: boolean;
+  isMilestone: boolean;
+
+  start: string;
+  finish: string;
+  durationMinutes: number;
+  workMinutes: number;
+  remainingWorkMinutes: number;
+
+  percentComplete: number;
+  physicalPercentComplete?: number;
+
+  constraintType: ConstraintType;
+  constraintDate?: string;
+  deadline?: string;
+
+  calendarId: string;
+  priority: number;
+
+  fixedCost: number;
+  costAccrual: "start" | "prorated" | "end";
+
+  baselineStart?: string;
+  baselineFinish?: string;
+  baselineDurationMinutes?: number;
+  baselineWorkMinutes?: number;
+  baselineCost?: number;
+
+  actualStart?: string;
+  actualFinish?: string;
+  actualWorkMinutes?: number;
+  actualCost?: number;
+
+  totalFloatMinutes?: number;
+  freeFloatMinutes?: number;
+  isCritical?: boolean;
+
+  status: "not-started" | "in-progress" | "blocked" | "complete" | "cancelled";
+  tags: string[];
+}
+
+Dependency structure:
+
+interface Dependency {
+  id: string;
+  predecessorTaskId: string;
+  successorTaskId: string;
+  type: DependencyType;
+  lagMinutes: number;
+}
+
+Resource assignment structure:
+
+interface Assignment {
+  id: string;
+  taskId: string;
+  resourceId: string;
+  units: number;
+  plannedWorkMinutes: number;
+  actualWorkMinutes: number;
+  remainingWorkMinutes: number;
+  costRateId?: string;
+}
+
+﻿
+8. Scheduling Engine Requirements
+The scheduling engine must be deterministic and testable independently of the UI.
+8.1 Calendar logic
+Support:
+Working and non-working days.
+Working-hour intervals.
+Weekends.
+Holidays.
+Project calendars.
+Resource calendars.
+Task calendars.
+Calendar inheritance and override.
+Duration addition and subtraction across working time.
+Time-zone-safe date handling.
+8.2 Dependency logic
+Support:
+FS: successor starts after predecessor finishes.
+SS: successor starts after predecessor starts.
+FF: successor finishes after predecessor finishes.
+SF: successor finishes after predecessor starts.
+Positive lag.
+Negative lag or lead.
+Dependency-cycle detection.
+Clear validation errors for impossible schedules.
+8.3 Critical Path Method
+Implement:
+Topological ordering.
+Forward pass.
+Early start.
+Early finish.
+Backward pass.
+Late start.
+Late finish.
+Total float.
+Free float.
+Critical-path identification.
+Multiple critical paths.
+Recalculation after edits.
+Summary tasks must roll up from child tasks and must not create circular calculation.
+8.4 Constraints
+Implement and test:
+As Soon As Possible.
+As Late As Possible.
+Start No Earlier Than.
+Start No Later Than.
+Finish No Earlier Than.
+Finish No Later Than.
+Must Start On.
+Must Finish On.
+Deadlines that warn without automatically constraining the task.
+8.5 Progress and forecasting
+Support:
+Status date.
+Actual start and finish.
+Actual and remaining duration/work.
+Rescheduling incomplete work.
+Forecast finish.
+Schedule variance.
+Baseline variance.
+Milestone slippage.
+Earned-value fields where enabled.
+8.6 Resource scheduling
+Support:
+Capacity by calendar.
+Assignment units.
+Work calculation.
+Resource utilization.
+Over-allocation detection.
+Resource histogram.
+Manual leveling suggestions.
+Do not silently alter task dates through automatic leveling in version 1 unless the user explicitly enables it.
+﻿
+9. Gantt User Experience
+Create a synchronized split screen.
+9.1 Left task grid
+Columns should be configurable and include:
+ID.
+Indicators.
+WBS.
+Task name.
+Duration.
+Start.
+Finish.
+Predecessors.
+Successors.
+Resource names.
+Work.
+Percentage complete.
+Baseline start.
+Baseline finish.
+Variance.
+Total float.
+Critical.
+Cost.
+AI inference cost.
+Owner.
+Status.
+Risk indicator.
+Support:
+Hierarchical indentation.
+Expand and collapse.
+Inline editing.
+Multi-select.
+Add, delete, duplicate and move.
+Keyboard navigation.
+Column resize and reorder.
+Filtering, sorting and grouping.
+Frozen identifying columns.
+Validation messages.
+9.2 Right Gantt timeline
+Support:
+Day, week, month, quarter and year zoom.
+Current date line.
+Status date line.
+Non-working-time shading.
+Summary bars.
+Task bars.
+Milestone diamonds.
+Baseline bars.
+Percentage-complete overlay.
+Critical-path highlighting.
+Dependency arrows.
+Risk and governance markers.
+Drag task bars with confirmation.
+Resize duration.
+Create dependency by connecting tasks.
+Tooltip with schedule, owner, cost and status.
+Horizontal virtual scrolling.
+Vertical synchronization with task grid.
+Print and export view.
+9.3 Accessibility
+Full keyboard operation for critical functions.
+Visible focus.
+Semantic labels.
+Screen-reader descriptions for bars and dependencies.
+Sufficient contrast.
+Do not rely on colour alone.
+Respect reduced-motion settings.
+﻿
+10. AI Project Lifecycle Template
+Provide a built-in enterprise AI-program template containing these phases.
+Phase 0 — Mobilization
+Project charter.
+Sponsor and governance.
+Team formation.
+Procurement and access.
+Delivery methodology.
+Initial RAID log.
+Phase 1 — Strategy and Use-Case Qualification
+Business problem.
+User and stakeholder research.
+Value hypothesis.
+AI suitability decision.
+Build, buy or partner assessment.
+Feasibility.
+Initial risk classification.
+Success metrics.
+Phase 2 — Product Discovery
+Personas.
+Jobs-to-be-done.
+Journey and pain points.
+Opportunity backlog.
+Prototype.
+Desirability testing.
+Product outcome roadmap.
+MVP definition.
+Phase 3 — Data and Knowledge Readiness
+Source inventory.
+Data ownership.
+Access and consent.
+Data profiling.
+Quality assessment.
+Classification.
+Lineage.
+Semantic model.
+Knowledge and retrieval design.
+Synthetic-data plan.
+Data readiness gate.
+Phase 4 — Architecture, Security and Governance
+Solution architecture.
+Threat model.
+Privacy impact.
+Responsible-AI assessment.
+Model risk assessment.
+Identity and authorization.
+Data protection.
+Third-party review.
+Architecture and governance gate.
+Phase 5 — Model and AI Engineering
+Baseline solution.
+Model selection.
+Prompt design.
+RAG implementation.
+Agent and tool design.
+Guardrails.
+Human review.
+Token and latency optimization.
+Versioning and experiment tracking.
+Phase 6 — Application and Integration Engineering
+UX.
+APIs.
+Workflow integration.
+System integration.
+Observability.
+Error handling.
+Accessibility.
+Performance.
+Phase 7 — Evaluation and Assurance
+Evaluation contract.
+Golden test set.
+Boundary tests.
+Adversarial tests.
+Model-quality evaluation.
+Retrieval evaluation.
+Agent trajectory evaluation.
+Security testing.
+Bias and fairness review where applicable.
+Human acceptance.
+Release gate.
+Phase 8 — Pilot and Rollout
+Pilot cohort.
+Shadow mode.
+Canary deployment.
+Training.
+Communications.
+Support model.
+Adoption measurement.
+Go/no-go decision.
+Phase 9 — Production Operations
+SLOs.
+Monitoring.
+Quality drift.
+Data drift.
+Model drift.
+Token and cost monitoring.
+Incident response.
+Change control.
+Continual evaluation.
+Benefit realization.
+Phase 10 — Retirement or Replacement
+Exit criteria.
+Data retention and deletion.
+Model and prompt retirement.
+Dependency removal.
+User transition.
+Evidence archive.
+Post-implementation review.
+﻿
+11. AI Product Management Framework
+The product plan must use a dual-track model.
+Discovery track
+Problem validation.
+Persona research.
+Opportunity mapping.
+Assumptions.
+Prototypes.
+Experiments.
+Feasibility spikes.
+AI-risk discovery.
+Data-readiness discovery.
+Value validation.
+Delivery track
+Epics.
+Features.
+Enablers.
+Model and data work.
+Application work.
+Integration.
+Evaluations.
+Security.
+Governance gates.
+Releases.
+Adoption.
+Link discovery evidence to delivery decisions.
+A feature must not enter committed delivery without:
+Defined user or business outcome.
+Acceptance criteria.
+Data and model dependencies.
+Evaluation criteria.
+Security and governance impact.
+Cost expectation.
+Owner.
+Release target.
+﻿
+12. AI FinOps and Token-Economics Module
+Track planned, actual and forecast cost.
+Cost categories
+Model training or fine-tuning.
+Inference.
+Embeddings.
+Reranking.
+Vector or graph storage.
+Data processing.
+Evaluation.
+Observability.
+Human review.
+Development tooling.
+Cloud infrastructure.
+Third-party APIs.
+Support and operations.
+Token and inference fields
+Model/provider.
+Request type.
+Input tokens.
+Cached-input tokens.
+Output tokens.
+Reasoning tokens where exposed.
+Requests per outcome.
+Cost per 1,000 or 1,000,000 units.
+Daily/monthly volume.
+Retry rate.
+Cache-hit rate.
+Tool calls.
+Agent steps.
+Cost per accepted outcome.
+Budget threshold.
+Forecast.
+Variance.
+Optimization action.
+FinOps views
+Planned versus actual AI cost.
+Cost by product, release, environment and use case.
+Unit economics.
+Cost anomalies.
+Model-routing comparison.
+Token trend.
+Quality versus cost.
+Budget burn.
+Forecast at completion.
+Never present lower token use as success when quality, safety or outcome performance deteriorates.
+﻿
+13. Risk, Governance and Decision Gates
+Include a RAID and governance module.
+Risk fields
+Risk ID.
+Category.
+Cause.
+Event.
+Consequence.
+Likelihood.
+Impact.
+Exposure.
+Proximity.
+Velocity.
+Owner.
+Treatment.
+Residual risk.
+Trigger.
+Contingency.
+Linked tasks.
+Review date.
+AI risk categories
+Business-value failure.
+User harm.
+Hallucination or unsupported output.
+Data leakage.
+Prompt injection.
+Unsafe tool use.
+Bias or unfairness.
+Privacy breach.
+Model or vendor dependency.
+Intellectual-property risk.
+Regulatory non-compliance.
+Cost escalation.
+Latency or availability.
+Drift.
+Human-automation failure.
+Monitoring gaps.
+Exit and portability risk.
+Mandatory gates
+Use-case approval.
+Data readiness.
+Architecture.
+Security and privacy.
+Responsible AI.
+Evaluation readiness.
+Pilot readiness.
+Production readiness.
+Post-production review.
+Retirement.
+Every gate must show:
+Entry criteria.
+Evidence.
+Approvers.
+Decision.
+Conditions.
+Expiry or revalidation date.
+Linked milestones and tasks.
+﻿
+14. Reports
+Generate the following reports from live project data.
+Project charter.
+Product vision and outcome roadmap.
+WBS dictionary.
+Detailed schedule.
+Milestone report.
+Critical-path report.
+Schedule variance.
+Resource utilization.
+Budget and forecast.
+AI FinOps report.
+RAID log.
+Governance-gate report.
+Evaluation scorecard.
+Product release plan.
+Executive status report.
+30/60/90-day roadmap.
+Lessons learned.
+Production-readiness report.
+Reports must state the data date and must not fabricate missing values.
+﻿
+15. Sample Project
+Create a realistic sample project:
+Enterprise Retrieval-Augmented Generation Assistant for Engineering Knowledge
+Include:
+9-month program duration.
+Product discovery and delivery tracks.
+Multiple workstreams.
+At least 120 tasks.
+Four dependency types.
+Positive and negative lags.
+Summary tasks.
+At least 20 milestones.
+Project and resource calendars.
+At least 15 resources across product, data, AI, application, security, governance, change and operations.
+Resource over-allocation examples.
+Baseline and current schedule.
+Delayed and completed tasks.
+Critical and non-critical paths.
+Risks, issues, assumptions, dependencies and decisions.
+Model, prompt, retrieval and agent work.
+Evaluation scorecards.
+Responsible-AI and security gates.
+AI token and inference budget.
+Pilot, canary and production rollout.
+Benefit-realization measures.
+The sample must be internally consistent and pass schema and schedule validation.
+﻿
+16. Staged Cursor Implementation Prompts
+Do not ask Cursor to build the entire product in one agent run.
+Prompt 1 — Documentation and architecture
+
+Using the approved plan, create only the PRD, data model, scheduling-engine specification, UX specification, security specification, test strategy and ADRs.
+
+Do not implement UI or production code.
+
+Cross-check every requirement for contradictions, missing entities, untestable acceptance criteria and unsupported assumptions. End with a requirements traceability matrix.
+
+Prompt 2 — Domain model and persistence
+
+Implement the typed domain model, validation schemas, repository interfaces and IndexedDB persistence.
+
+Write unit tests first.
+
+Include schema versioning, safe migrations, import validation, transaction handling and recovery from corrupted local data.
+
+Do not implement the Gantt UI yet.
+
+Prompt 3 — Scheduling engine
+
+Implement the deterministic scheduling engine as a UI-independent TypeScript module.
+
+Write tests before implementation for calendars, all four dependency types, positive and negative lag, constraints, deadlines, cycles, summary roll-up, forward and backward passes, critical path, total float, free float, baselines and progress forecasting.
+
+Use property-based or generated tests for schedule invariants where practical.
+
+Do not proceed until the focused test suite passes.
+
+Prompt 4 — Task grid and Gantt
+
+Implement the synchronized WBS task grid and Gantt timeline against the tested scheduling engine.
+
+Prioritize correctness, keyboard accessibility, virtualization and deterministic rendering.
+
+Add summary bars, milestones, dependency arrows, baselines, critical path, progress overlays, zoom and calendar shading.
+
+Do not add product-management modules yet.
+
+Prompt 5 — Product and AI lifecycle modules
+
+Implement product vision, outcomes, OKRs, personas, opportunities, experiments, roadmap, AI lifecycle, datasets, models, prompts, RAG, agents, evaluations and governance gates.
+
+Link each item to relevant tasks, milestones, releases, owners and evidence.
+
+Add representative unit and integration tests.
+
+Prompt 6 — Resources, cost and AI FinOps
+
+Implement resource assignments, capacity, utilization, over-allocation, rate cards, planned/actual/forecast cost and AI FinOps.
+
+Support token, request, inference, evaluation, observability and human-review costs.
+
+Calculate cost per accepted outcome and quality-versus-cost views.
+
+Do not optimize cost by weakening validation.
+
+Prompt 7 — Import, export and reports
+
+Implement versioned JSON import/export, validated CSV import/export, locally bundled XLSX export, backup/restore and print-friendly reports.
+
+Reject invalid or dangerous content with clear row-level errors.
+
+Never execute imported content as code or markup.
+
+Prompt 8 — Sample data
+
+Create the enterprise RAG program sample with at least 120 internally consistent tasks.
+
+Validate WBS hierarchy, dependency graph, calendar calculations, resources, costs, baselines, critical path, risks, governance gates and evaluation data.
+
+Add an automated sample-data integrity test.
+
+Prompt 9 — End-to-end validation
+
+Run a complete production-readiness review.
+
+Validate:
+
+- Type checks.
+- Lint.
+- Unit tests.
+- Integration tests.
+- End-to-end tests.
+- Build.
+- Offline operation.
+- Browser reload and persistence.
+- Import/export round trip.
+- Scheduling correctness.
+- Accessibility.
+- Performance with 2,000 tasks.
+- Security and privacy.
+- Dependency licenses and vulnerabilities.
+- No external runtime network dependency.
+- No secrets.
+- No fabricated completion claims.
+
+Fix root causes, rerun the smallest relevant checks and provide an evidence-based completion report with residual risks.
+
+﻿
+17. Test Requirements
+Scheduling tests
+Test:
+Zero-duration milestones.
+Weekends and holidays.
+Split working hours.
+Cross-month and cross-year schedules.
+Daylight-saving and time-zone boundaries.
+Each dependency type.
+Lag and lead.
+Multiple predecessors.
+Multiple successors.
+Cycles.
+Constraints.
+Deadlines.
+Summary tasks.
+Critical paths.
+Multiple critical paths.
+Float.
+Actuals and status date.
+Baseline variance.
+Manual tasks.
+Resource calendars.
+Data tests
+Test:
+Invalid IDs.
+Duplicate IDs.
+Orphan parents.
+Circular hierarchy.
+Circular dependencies.
+Invalid dates.
+Invalid percentages.
+Unknown resources.
+Broken references.
+Schema migration.
+Import/export round trip.
+Corrupted local storage.
+UI tests
+Test:
+Grid/timeline synchronization.
+Expand/collapse.
+Keyboard navigation.
+Drag and resize.
+Dependency creation.
+Undo/redo.
+Filters.
+Zoom.
+Printing.
+Reload persistence.
+Large schedules.
+Accessibility.
+AI module tests
+Test:
+Evaluation-gate completeness.
+Model and prompt version traceability.
+Cost calculations.
+Token-budget alerts.
+Governance approvals.
+Evidence links.
+Risk-gate blocking.
+Missing-quality-metric warnings.
+﻿
+18. Performance Budgets
+Use explicit performance targets.
+Initial targets:
+First meaningful screen within 2 seconds on a normal modern laptop after local build.
+Smooth scrolling for 2,000 tasks.
+Schedule recalculation under 250 milliseconds for a typical 500-task project.
+Schedule recalculation under 1 second for 2,000 tasks, unless profiling proves a justified exception.
+Local save feedback within 300 milliseconds.
+No quadratic algorithm on common task-edit paths unless documented and bounded.
+Lazy-load non-critical reports.
+Virtualize long task and resource lists.
+Measure before claiming the targets have been achieved.
+﻿
+19. Version 1 Boundaries
+Include in version 1:
+Single-user local operation.
+Multiple portfolios, products and projects.
+WBS and Gantt.
+Scheduling engine.
+Resources and cost.
+Product roadmap.
+AI lifecycle.
+Evaluations.
+Governance.
+Reports.
+JSON, CSV and XLSX export.
+Local backup and restore.
+Exclude from version 1 unless separately approved:
+Real-time multi-user collaboration.
+Cloud synchronization.
+Native .mpp import/export.
+Enterprise SSO.
+External ticketing integrations.
+Automatic resource leveling that silently changes dates.
+Live model-provider billing ingestion.
+Production deployment actions.
+Autonomous governance approvals.
+Document exclusions clearly in the UI and README.
+﻿
+20. Definition of Done
+The product is complete only when:
+The approved requirements are traceable to implementation and tests.
+The scheduling engine passes all focused tests.
+The sample project loads without validation errors.
+The WBS and Gantt remain synchronized.
+Dependencies, calendars, constraints, critical path and baselines calculate correctly.
+Product and AI lifecycle records link to schedule items.
+Resources, budgets and AI FinOps calculate correctly.
+Data persists after browser restart.
+Backup and restore work.
+JSON and CSV round trips preserve data.
+XLSX exports open correctly.
+No runtime internet connection is required.
+Accessibility checks pass for core workflows.
+The application remains usable with 2,000 tasks.
+Security and dependency checks are reviewed.
+The README contains installation, use, backup, recovery and troubleshooting instructions.
+Remaining limitations and unverified areas are explicitly documented.
+No claim of Microsoft Project compatibility or full production readiness is made without direct evidence.
+﻿
+21. Recommended Operating Method in Cursor
+Create the empty repository.
+Add the engineering AGENTS.md.
+Open Cursor Plan Mode.
+Paste the Plan Mode prompt from Section 4.
+Answer Cursor's material clarification questions.
+Review and edit the generated plan.
+Save the plan in the repository.
+Run the staged prompts one at a time.
+Review the diff after every stage.
+Require targeted tests before moving forward.
+Commit only coherent, reviewed stages.
+Use a fresh Cursor chat when moving to a substantially different stage.
+Keep generated reports and large sample artefacts out of always-loaded context.
+Perform the final production-readiness review in a fresh context.
+﻿
+22. Practical Advice
+The most common failure is asking Cursor:
+“Build me a Microsoft Project clone for AI projects.”
+That request is too broad. It encourages a visually attractive but logically weak chart.
+The correct order is:
+
+Requirements
+    ↓
+Domain model
+    ↓
+Scheduling specification
+    ↓
+Scheduling tests
+    ↓
+Scheduling engine
+    ↓
+Persistence
+    ↓
+WBS grid
+    ↓
+Gantt rendering
+    ↓
+AI product modules
+    ↓
+FinOps and governance
+    ↓
+Import/export
+    ↓
+End-to-end validation
+
+The scheduling engine is the core product. A Gantt bar without validated calendar, dependency, constraint, baseline and critical-path logic is only a drawing, not a project-management system.
+Comments
+Powered by

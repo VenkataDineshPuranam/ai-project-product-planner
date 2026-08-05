@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-08-05T13:00:00.000Z",
+  "calendars": [
+    {
+      "id": "cal-standard",
+      "name": "Standard M-F 9-17 (America/New_York)",
+      "workingDays": {
+        "0": false,
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": false
+      },
+      "workingHours": [
+        {
+          "start": "09:00",
+          "end": "17:00"
+        }
+      ],
+      "exceptions": [
+        {
+          "date": "2026-05-25",
+          "isWorking": false,
+          "label": "Memorial Day"
+        },
+        {
+          "date": "2026-07-03",
+          "isWorking": false,
+          "label": "Independence Day observed"
+        }
+      ],
+      "timeZone": "America/New_York"
+    },
+    {
+      "id": "cal-parttime",
+      "name": "Part-time Mon/Wed/Fri",
+      "baseCalendarId": "cal-standard",
+      "workingDays": {
+        "0": false,
+        "1": true,
+        "2": false,
+        "3": true,
+        "4": false,
+        "5": true,
+        "6": false
+      },
+      "workingHours": [
+        {
+          "start": "09:00",
+          "end": "17:00"
+        }
+      ],
+      "exceptions": [],
+      "timeZone": "America/New_York"
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-pm",
+      "name": "Priya Nair (Product Manager)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-designer",
+      "name": "Sam Okafor (Product Designer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-dataeng",
+      "name": "Wei Zhang (Data Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-datasci",
+      "name": "Lena Petrova (Data Scientist)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-mleng",
+      "name": "Marco Rossi (ML Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-prompteng",
+      "name": "Aisha Bello (Prompt Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-aiarch",
+      "name": "David Kim (AI Architect)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-backend1",
+      "name": "Jordan Lee (Backend Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-backend2",
+      "name": "Fatima Haidari (Backend Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-frontend",
+      "name": "Noah Fischer (Frontend Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-secure",
+      "name": "Grace Adeyemi (Security Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-privacy",
+      "name": "Tom Nguyen (Privacy Officer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-compliance",
+      "name": "Helena Wojcik (Compliance Lead)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-change",
+      "name": "Carlos Mendes (Change Manager)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-sre",
+      "name": "Yuki Tanaka (Site Reliability Engineer)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-standard",
+      "maxUnits": 1,
+      "costRates": []
+    },
+    {
+      "id": "res-support",
+      "name": "Omar Haddad (Support Lead)",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "calendarId": "cal-parttime",
+      "maxUnits": 0.5,
+      "costRates": []
+    }
+  ]
+}

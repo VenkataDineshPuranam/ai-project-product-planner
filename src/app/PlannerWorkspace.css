@@ -1,0 +1,37 @@
+.planner-workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: system-ui, sans-serif;
+}
+
+.planner-workspace__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.planner-workspace__errors {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.planner-workspace__split {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+.planner-workspace__grid-pane {
+  flex: 0 0 auto;
+  min-width: 480px;
+  border-right: 1px solid #e2e2e2;
+  overflow: auto;
+}
+
+.planner-workspace__gantt-pane {
+  flex: 1;
+  overflow: auto;
+}

@@ -1,0 +1,1376 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-08-05T13:00:00.000Z",
+  "product": {
+    "productVision": {
+      "id": "vision-1",
+      "name": "AI-native engineering knowledge assistant",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "northStarMetric": "Weekly active engineers using assisted answers"
+    },
+    "personas": [
+      {
+        "id": "persona-eng",
+        "name": "Staff Software Engineer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "segment": "Internal engineering"
+      },
+      {
+        "id": "persona-sre",
+        "name": "Site Reliability Engineer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "segment": "Internal operations"
+      }
+    ],
+    "jobsToBeDone": [
+      {
+        "id": "jtbd-1",
+        "name": "Find the right internal doc without asking a colleague",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "personaId": "persona-eng"
+      },
+      {
+        "id": "jtbd-2",
+        "name": "Resolve an incident using verified runbook steps",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "personaId": "persona-sre"
+      }
+    ],
+    "problemStatements": [
+      {
+        "id": "problem-1",
+        "name": "Engineers spend ~4 hours/week searching scattered documentation",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "personaId": "persona-eng"
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "opp-1",
+        "name": "Surface grounded answers directly in Slack",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "problemStatementId": "problem-1",
+        "evidenceLinks": [
+          "interview-notes-2026-02"
+        ]
+      },
+      {
+        "id": "opp-2",
+        "name": "Reduce incident MTTR via runbook retrieval",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "problemStatementId": "problem-1",
+        "evidenceLinks": [
+          "incident-retro-2026-01"
+        ]
+      }
+    ],
+    "outcomes": [
+      {
+        "id": "outcome-1",
+        "name": "Reduce median time-to-answer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricName": "median_time_to_answer_minutes",
+        "baseline": 25,
+        "target": 10
+      },
+      {
+        "id": "outcome-2",
+        "name": "Increase weekly active assisted users",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricName": "weekly_active_users",
+        "baseline": 0,
+        "target": 400
+      }
+    ],
+    "okrs": [
+      {
+        "id": "okr-1",
+        "name": "Ship a trusted engineering knowledge assistant by Q4",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "objective": "Engineers trust and regularly use the RAG assistant for knowledge retrieval",
+        "keyResults": [
+          {
+            "text": "Reach 400 weekly active users",
+            "target": 400,
+            "current": 0
+          },
+          {
+            "text": "Sustain groundedness >= 0.9 in production",
+            "target": 0.9,
+            "current": 0
+          }
+        ]
+      }
+    ],
+    "kpis": [
+      {
+        "id": "kpi-1",
+        "name": "Cost per accepted answer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "formula": "total_inference_cost / accepted_outcomes"
+      },
+      {
+        "id": "kpi-2",
+        "name": "Groundedness score",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "formula": "avg(evaluation_run.results.groundedness)"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "hyp-1",
+        "name": "Grounded RAG answers reduce Slack-question volume by 30%",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "statement": "If we surface grounded answers in Slack, question volume to #eng-help drops 30%",
+        "evidenceLinks": []
+      }
+    ],
+    "epics": [
+      {
+        "id": "epic-search",
+        "name": "Grounded knowledge search",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "outcomeId": "outcome-1"
+      },
+      {
+        "id": "epic-slack",
+        "name": "Slack integration",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "outcomeId": "outcome-2"
+      },
+      {
+        "id": "epic-ops",
+        "name": "Operational readiness",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "outcomeId": "outcome-2"
+      }
+    ],
+    "features": [
+      {
+        "id": "feat-retrieval",
+        "name": "Grounded document retrieval",
+        "ownerId": "res-aiarch",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "epicId": "epic-search",
+        "outcomeId": "outcome-1",
+        "acceptanceCriteria": [
+          "Returns >=3 relevant grounded sources for 90% of golden-set queries"
+        ],
+        "dataDependencies": [
+          "dataset-docs"
+        ],
+        "modelDependencies": [
+          "modelversion-2"
+        ],
+        "evaluationCriteria": [
+          "Groundedness >= 0.9",
+          "Relevance >= 0.85"
+        ],
+        "releaseId": "release-pilot",
+        "committed": true
+      },
+      {
+        "id": "feat-slack",
+        "name": "Slack chat interface",
+        "ownerId": "res-frontend",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "epicId": "epic-slack",
+        "outcomeId": "outcome-2",
+        "acceptanceCriteria": [
+          "Responds within 3s p95 latency"
+        ],
+        "dataDependencies": [],
+        "modelDependencies": [
+          "modelversion-2"
+        ],
+        "evaluationCriteria": [
+          "Latency p95 < 3000ms"
+        ],
+        "releaseId": "release-pilot",
+        "committed": true
+      },
+      {
+        "id": "feat-agent-tools",
+        "name": "Ticketing agent tool integration",
+        "ownerId": "res-mleng",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "epicId": "epic-search",
+        "outcomeId": "outcome-1",
+        "acceptanceCriteria": [
+          "Agent can open a ticket with correct fields for 95% of test cases"
+        ],
+        "dataDependencies": [],
+        "modelDependencies": [
+          "modelversion-2"
+        ],
+        "evaluationCriteria": [
+          "Agent trajectory success >= 0.9"
+        ],
+        "releaseId": "release-canary",
+        "committed": true
+      },
+      {
+        "id": "feat-monitoring",
+        "name": "Production quality/cost monitoring dashboard",
+        "ownerId": "res-sre",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "epicId": "epic-ops",
+        "outcomeId": "outcome-2",
+        "acceptanceCriteria": [
+          "Dashboard shows groundedness, cost-per-outcome, and drift signals"
+        ],
+        "dataDependencies": [],
+        "modelDependencies": [],
+        "evaluationCriteria": [
+          "Dashboard reviewed and accepted by SRE lead"
+        ],
+        "releaseId": "release-production",
+        "committed": true
+      },
+      {
+        "id": "feat-multilang",
+        "name": "Multi-language support",
+        "ownerId": "res-pm",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "epicId": "epic-search",
+        "outcomeId": "outcome-1",
+        "acceptanceCriteria": [],
+        "dataDependencies": [],
+        "modelDependencies": [],
+        "evaluationCriteria": [],
+        "committed": false
+      }
+    ],
+    "stories": [
+      {
+        "id": "story-1",
+        "name": "As an engineer I can ask a question in Slack and get a grounded answer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "featureId": "feat-slack"
+      },
+      {
+        "id": "story-2",
+        "name": "As an engineer I can see citations for a retrieved answer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "featureId": "feat-retrieval"
+      },
+      {
+        "id": "story-3",
+        "name": "As an SRE I can open a ticket from the assistant",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "featureId": "feat-agent-tools"
+      }
+    ],
+    "experiments": [
+      {
+        "id": "exp-1",
+        "name": "A/B test grounded vs ungrounded answers on Slack question deflection",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "hypothesisId": "hyp-1",
+        "result": "Grounded answers reduced follow-up questions by 34%"
+      }
+    ],
+    "acceptanceCriteria": [
+      {
+        "id": "ac-1",
+        "name": "Golden-set groundedness >= 0.9",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "featureId": "feat-retrieval",
+        "met": false
+      },
+      {
+        "id": "ac-2",
+        "name": "Slack p95 latency < 3000ms",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "featureId": "feat-slack",
+        "met": false
+      }
+    ],
+    "benefits": [
+      {
+        "id": "benefit-1",
+        "name": "Reduced time-to-answer",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "outcomeId": "outcome-1"
+      },
+      {
+        "id": "benefit-2",
+        "name": "Reduced Slack question volume",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "outcomeId": "outcome-2"
+      }
+    ],
+    "adoptionMetrics": [
+      {
+        "id": "adopt-1",
+        "name": "Weekly active users",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricName": "weekly_active_users",
+        "value": 0,
+        "capturedAt": "2026-08-05T13:00:00.000Z"
+      }
+    ]
+  },
+  "ai": {
+    "aiUseCase": {
+      "id": "usecase-1",
+      "name": "Engineering knowledge RAG assistant",
+      "status": "active",
+      "createdAt": "2026-01-05T14:00:00.000Z",
+      "updatedAt": "2026-01-05T14:00:00.000Z",
+      "version": 1,
+      "tags": [],
+      "auditTrail": [],
+      "isAISuitable": true,
+      "buildBuyPartner": "build",
+      "riskClassification": "medium"
+    },
+    "datasets": [
+      {
+        "id": "dataset-docs",
+        "name": "Internal engineering documentation corpus",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "source": "Confluence + GitHub wikis",
+        "classification": "internal-confidential"
+      },
+      {
+        "id": "dataset-tickets",
+        "name": "Historical support ticket corpus",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "source": "Ticketing system export",
+        "classification": "internal-confidential"
+      }
+    ],
+    "dataQualityGates": [
+      {
+        "id": "dqg-1",
+        "name": "Documentation corpus quality gate",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "datasetId": "dataset-docs",
+        "passed": true,
+        "criteria": [
+          "Deduplicated",
+          "PII-scrubbed",
+          "Freshness < 90 days"
+        ]
+      }
+    ],
+    "modelCandidates": [
+      {
+        "id": "modelcand-1",
+        "name": "Provider A frontier model",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "provider": "provider-a",
+        "family": "frontier"
+      },
+      {
+        "id": "modelcand-2",
+        "name": "Provider A efficient model",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "provider": "provider-a",
+        "family": "efficient"
+      }
+    ],
+    "modelVersions": [
+      {
+        "id": "modelversion-1",
+        "name": "Provider A frontier v1 (retired)",
+        "status": "retired",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "modelCandidateId": "modelcand-1",
+        "versionTag": "v1"
+      },
+      {
+        "id": "modelversion-2",
+        "name": "Provider A frontier v2 (current)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "modelCandidateId": "modelcand-1",
+        "versionTag": "v2"
+      }
+    ],
+    "promptVersions": [
+      {
+        "id": "promptversion-1",
+        "name": "Retrieval-grounded answer prompt v1",
+        "status": "retired",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "versionTag": "v1",
+        "templateHash": "sha256-aaa111"
+      },
+      {
+        "id": "promptversion-2",
+        "name": "Retrieval-grounded answer prompt v2",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "versionTag": "v2",
+        "templateHash": "sha256-bbb222"
+      }
+    ],
+    "retrievalConfigurations": [
+      {
+        "id": "retrieval-1",
+        "name": "Production retrieval configuration",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "indexType": "hybrid-dense-sparse",
+        "chunkStrategy": "semantic-512-token"
+      }
+    ],
+    "agentDefinitions": [
+      {
+        "id": "agent-1",
+        "name": "Ticketing assistant agent",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "toolIds": [
+          "tool-1",
+          "tool-2"
+        ],
+        "maxSteps": 6
+      }
+    ],
+    "toolDefinitions": [
+      {
+        "id": "tool-1",
+        "name": "search_documentation",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "schema": "{ query: string }"
+      },
+      {
+        "id": "tool-2",
+        "name": "create_ticket",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "schema": "{ title: string; description: string; priority: string }"
+      }
+    ],
+    "evaluationMetrics": [
+      {
+        "id": "metric-accuracy",
+        "name": "Accuracy",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "accuracy",
+        "threshold": 0.85
+      },
+      {
+        "id": "metric-groundedness",
+        "name": "Groundedness",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "groundedness",
+        "threshold": 0.9
+      },
+      {
+        "id": "metric-relevance",
+        "name": "Relevance",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "relevance",
+        "threshold": 0.85
+      },
+      {
+        "id": "metric-safety",
+        "name": "Safety",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "safety",
+        "threshold": 0.98
+      },
+      {
+        "id": "metric-latency",
+        "name": "Latency (ms, lower is better)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "latency",
+        "threshold": 3000
+      },
+      {
+        "id": "metric-cost",
+        "name": "Cost per accepted outcome (USD)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "kind": "cost",
+        "threshold": 0.5
+      }
+    ],
+    "evaluationContracts": [
+      {
+        "id": "evalcontract-1",
+        "name": "Production readiness evaluation contract",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricIds": [
+          "metric-accuracy",
+          "metric-groundedness",
+          "metric-relevance",
+          "metric-safety",
+          "metric-latency",
+          "metric-cost"
+        ],
+        "gateId": "gate-release",
+        "goldenSetRef": "golden-set-v3-2026-07"
+      }
+    ],
+    "evaluationRuns": [
+      {
+        "id": "evalrun-1",
+        "name": "Nightly eval — retired v1 model (historical)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "evaluationContractId": "evalcontract-1",
+        "modelVersionId": "modelversion-1",
+        "promptVersionId": "promptversion-1",
+        "results": {
+          "metric-accuracy": 0.81,
+          "metric-groundedness": 0.83,
+          "metric-relevance": 0.8,
+          "metric-safety": 0.97,
+          "metric-latency": 3400,
+          "metric-cost": 0.62
+        },
+        "passed": false
+      },
+      {
+        "id": "evalrun-2",
+        "name": "Release-candidate eval — current v2 model",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "evaluationContractId": "evalcontract-1",
+        "modelVersionId": "modelversion-2",
+        "promptVersionId": "promptversion-2",
+        "results": {
+          "metric-accuracy": 0.91,
+          "metric-groundedness": 0.93,
+          "metric-relevance": 0.88,
+          "metric-safety": 0.99,
+          "metric-latency": 2100
+        },
+        "passed": true
+      }
+    ],
+    "safetyControls": [
+      {
+        "id": "safety-1",
+        "name": "Prompt-injection guardrail",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "controlType": "input-filtering"
+      },
+      {
+        "id": "safety-2",
+        "name": "PII redaction on output",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "controlType": "output-filtering"
+      }
+    ],
+    "humanReviewGates": [
+      {
+        "id": "humanreview-1",
+        "name": "High-risk ticket action review",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "requiredForStatuses": [
+          "blocked",
+          "escalated"
+        ]
+      }
+    ],
+    "deploymentGates": [
+      {
+        "id": "gate-architecture",
+        "name": "Architecture and governance gate",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "gateName": "Architecture and governance gate",
+        "passed": true,
+        "evidenceIds": [
+          "evidence-1"
+        ],
+        "approvalIds": [
+          "approval-1"
+        ]
+      },
+      {
+        "id": "gate-release",
+        "name": "Release gate",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "gateName": "Release gate",
+        "passed": true,
+        "evidenceIds": [
+          "evidence-2"
+        ],
+        "approvalIds": [
+          "approval-2"
+        ]
+      },
+      {
+        "id": "gate-production",
+        "name": "Production readiness gate",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "gateName": "Production readiness gate",
+        "passed": false,
+        "evidenceIds": [
+          "evidence-3"
+        ],
+        "approvalIds": [
+          "approval-3"
+        ]
+      }
+    ],
+    "inferenceCostProfiles": [
+      {
+        "id": "costprofile-1",
+        "name": "Provider A frontier v2 pricing",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "modelVersionId": "modelversion-2",
+        "costPerMillionInputTokens": 3,
+        "costPerMillionOutputTokens": 15
+      }
+    ],
+    "tokenBudgets": [
+      {
+        "id": "tokenbudget-1",
+        "name": "Pilot-phase monthly token budget",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "periodStart": "2026-08-01T13:00:00.000Z",
+        "periodEnd": "2026-08-31T13:00:00.000Z",
+        "limitTokens": 50000000,
+        "consumedTokens": 41500000
+      }
+    ],
+    "monitoringMetrics": [
+      {
+        "id": "monitor-1",
+        "name": "Groundedness (rolling 7-day avg)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricName": "groundedness_7d_avg",
+        "value": 0.92,
+        "capturedAt": "2026-08-05T13:00:00.000Z"
+      },
+      {
+        "id": "monitor-2",
+        "name": "Cost per accepted outcome (rolling 7-day avg)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "metricName": "cost_per_outcome_7d_avg",
+        "value": 0.41,
+        "capturedAt": "2026-08-05T13:00:00.000Z"
+      }
+    ],
+    "incidents": [
+      {
+        "id": "incident-1",
+        "name": "Elevated hallucination rate after prompt v2 rollout",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "severity": "medium",
+        "resolvedAt": "2026-08-02T13:00:00.000Z"
+      }
+    ],
+    "retirementPlans": [
+      {
+        "id": "retire-1",
+        "name": "Assistant retirement plan (future)",
+        "status": "planned",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "exitCriteria": [
+          "Successor platform reaches feature parity"
+        ],
+        "dataRetentionPolicy": "Retain interaction logs 12 months, then delete"
+      }
+    ]
+  },
+  "governance": {
+    "risks": [
+      {
+        "id": "risk-hallucination",
+        "name": "Model produces unsupported/hallucinated citations",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "AI quality",
+        "aiRiskCategory": "Hallucination or unsupported output",
+        "cause": "insufficient retrieval grounding",
+        "event": "model cites nonexistent source",
+        "consequence": "user distrust, incorrect action taken",
+        "likelihood": 3,
+        "impact": 4,
+        "exposure": 12,
+        "proximity": "near-term",
+        "velocity": "fast",
+        "treatment": "Groundedness evaluation gate + citation verification",
+        "linkedTaskIds": [
+          "task-8-5"
+        ],
+        "reviewDate": "2026-09-01T13:00:00.000Z"
+      },
+      {
+        "id": "risk-injection",
+        "name": "Prompt injection via retrieved documents",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "Security",
+        "aiRiskCategory": "Prompt injection",
+        "cause": "untrusted content in retrieval context",
+        "event": "injected instruction alters agent behavior",
+        "consequence": "unsafe tool invocation",
+        "likelihood": 3,
+        "impact": 5,
+        "exposure": 15,
+        "proximity": "near-term",
+        "velocity": "fast",
+        "treatment": "Input filtering guardrail + human review gate for high-risk actions",
+        "linkedTaskIds": [
+          "task-8-8"
+        ],
+        "reviewDate": "2026-09-01T13:00:00.000Z"
+      },
+      {
+        "id": "risk-privacy",
+        "name": "Sensitive data leakage via retrieval",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "Privacy",
+        "aiRiskCategory": "Data leakage",
+        "cause": "insufficiently classified source documents",
+        "event": "confidential doc surfaced to unauthorized user",
+        "consequence": "compliance breach",
+        "likelihood": 2,
+        "impact": 5,
+        "exposure": 10,
+        "proximity": "medium-term",
+        "velocity": "moderate",
+        "treatment": "Document classification + access-aware retrieval",
+        "linkedTaskIds": [
+          "task-4-5"
+        ],
+        "reviewDate": "2026-09-01T13:00:00.000Z"
+      },
+      {
+        "id": "risk-cost",
+        "name": "AI inference cost escalation beyond budget",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "FinOps",
+        "aiRiskCategory": "Cost escalation",
+        "cause": "unbounded agent tool-call loops",
+        "event": "token consumption exceeds budget",
+        "consequence": "unplanned cloud spend",
+        "likelihood": 3,
+        "impact": 3,
+        "exposure": 9,
+        "proximity": "near-term",
+        "velocity": "moderate",
+        "treatment": "Token budget alerting + max agent step limit",
+        "linkedTaskIds": [
+          "task-6-9"
+        ],
+        "reviewDate": "2026-09-01T13:00:00.000Z"
+      },
+      {
+        "id": "risk-vendor",
+        "name": "Model provider dependency / deprecation",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "Technical",
+        "aiRiskCategory": "Model or vendor dependency",
+        "cause": "single-provider architecture",
+        "event": "provider deprecates selected model",
+        "consequence": "forced re-evaluation and re-integration",
+        "likelihood": 2,
+        "impact": 3,
+        "exposure": 6,
+        "proximity": "long-term",
+        "velocity": "slow",
+        "treatment": "Abstraction layer over model provider API",
+        "linkedTaskIds": [
+          "task-6-3"
+        ],
+        "reviewDate": "2026-11-01T14:00:00.000Z"
+      },
+      {
+        "id": "risk-bias",
+        "name": "Retrieval bias toward better-documented teams",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "AI quality",
+        "aiRiskCategory": "Bias or unfairness",
+        "cause": "uneven documentation coverage across teams",
+        "event": "assistant under-serves teams with sparse docs",
+        "consequence": "inequitable adoption",
+        "likelihood": 3,
+        "impact": 2,
+        "exposure": 6,
+        "proximity": "medium-term",
+        "velocity": "slow",
+        "treatment": "Coverage audit during data readiness gate",
+        "linkedTaskIds": [
+          "task-4-4"
+        ],
+        "reviewDate": "2026-09-15T13:00:00.000Z"
+      },
+      {
+        "id": "risk-drift",
+        "name": "Undetected quality drift after model update",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "Operations",
+        "aiRiskCategory": "Drift",
+        "cause": "no continual evaluation in production",
+        "event": "quality regresses silently after a provider-side model update",
+        "consequence": "degraded user trust before detection",
+        "likelihood": 3,
+        "impact": 3,
+        "exposure": 9,
+        "proximity": "long-term",
+        "velocity": "slow",
+        "treatment": "",
+        "linkedTaskIds": [
+          "task-10-9"
+        ],
+        "reviewDate": "2026-10-01T13:00:00.000Z"
+      },
+      {
+        "id": "risk-adoption",
+        "name": "Low pilot adoption undermines business case",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "category": "Product",
+        "cause": "insufficient change management",
+        "event": "pilot cohort does not adopt the assistant",
+        "consequence": "benefit case not realized",
+        "likelihood": 2,
+        "impact": 3,
+        "exposure": 6,
+        "proximity": "near-term",
+        "velocity": "moderate",
+        "treatment": "Dedicated change manager + training plan",
+        "linkedTaskIds": [
+          "task-9-3"
+        ],
+        "reviewDate": "2026-09-01T13:00:00.000Z"
+      }
+    ],
+    "issues": [
+      {
+        "id": "issue-1",
+        "name": "Documentation corpus export API rate-limited, slowing ingestion",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": []
+      },
+      {
+        "id": "issue-2",
+        "name": "Shared staging environment contention with another team",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": []
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "assumption-1",
+        "name": "Provider A will maintain current pricing through the pilot",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "validated": false
+      },
+      {
+        "id": "assumption-2",
+        "name": "Engineering documentation is the primary knowledge source engineers need",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "validated": true
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision-1",
+        "name": "Build (not buy) the retrieval layer for data-residency control",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "decidedBy": "VP Engineering",
+        "decidedAt": "2026-02-16T14:00:00.000Z"
+      },
+      {
+        "id": "decision-2",
+        "name": "Use hybrid dense+sparse retrieval over pure dense embeddings",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "decidedBy": "David Kim (AI Architect)",
+        "decidedAt": "2026-04-20T13:00:00.000Z"
+      }
+    ],
+    "changeRequests": [
+      {
+        "id": "change-1",
+        "name": "Add ticketing agent tool to MVP scope",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "impact": "Adds ~2 weeks to Model & AI Engineering workstream",
+        "approved": true
+      }
+    ],
+    "policyMappings": [
+      {
+        "id": "policy-1",
+        "name": "Maps to internal Responsible AI Policy v2",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "policyName": "Responsible AI Policy v2"
+      }
+    ],
+    "controls": [
+      {
+        "id": "control-1",
+        "name": "Human review required for high-risk agent actions",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "policyMappingId": "policy-1"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "evidence-1",
+        "name": "Architecture review sign-off minutes",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "uri": "docs://architecture-review-2026-05-14"
+      },
+      {
+        "id": "evidence-2",
+        "name": "Evaluation scorecard — release candidate",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "uri": "docs://eval-scorecard-2026-07-28"
+      },
+      {
+        "id": "evidence-3",
+        "name": "Pilot readiness checklist",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "uri": "docs://pilot-readiness-2026-06-10"
+      }
+    ],
+    "approvals": [
+      {
+        "id": "approval-1",
+        "name": "Architecture & governance gate approval",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "approverId": "res-secure",
+        "decision": "approved"
+      },
+      {
+        "id": "approval-2",
+        "name": "Release gate approval",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "approverId": "res-datasci",
+        "decision": "approved"
+      },
+      {
+        "id": "approval-3",
+        "name": "Production readiness gate approval (pending)",
+        "status": "active",
+        "createdAt": "2026-01-05T14:00:00.000Z",
+        "updatedAt": "2026-01-05T14:00:00.000Z",
+        "version": 1,
+        "tags": [],
+        "auditTrail": [],
+        "approverId": "res-sre",
+        "decision": "conditional"
+      }
+    ]
+  }
+}
